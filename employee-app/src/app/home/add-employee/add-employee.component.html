@@ -1,0 +1,73 @@
+
+<h4>{{ title }}</h4>
+<div class="container">
+    <h5>Department</h5>
+    <h6>Select the department and add the employee.</h6>
+    
+        <form #f="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <select #departmentName="ngModel" [(ngModel)]="employee.department" name="departmentName" id="departmentName" class="form-control input-lg input-underline" required>
+                  <option *ngFor="let d of departments" [ngValue]="d.departmentId">{{ d.departmentName }}</option>
+                  <!-- <option *ngFor="let c of categories">{{ c }}</option> -->
+                </select>
+                <div class="alert alert-danger" *ngIf="departmentName.touched && departmentName.invalid">
+                    Department Name is Required.
+                </div>
+            </div>
+            <h5>Employee Information</h5>
+            <div class="row">
+                <div class="form-group col-lg-6">
+                    <input #firstName="ngModel" [(ngModel)]="employee.firstName" name="firstName" id="firstName" type="text" placeholder="First Name" class="form-control input-lg input-underline" required>
+                    <div class="alert alert-danger" *ngIf="firstName.touched && firstName.invalid">
+                        First Name is Required.
+                      </div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <input #lastName="ngModel" [(ngModel)]="employee.lastName" name="lastName" id="lastName" type="text" placeholder="Last Name" class="form-control input-lg input-underline" required>
+                    <div class="alert alert-danger" *ngIf="lastName.touched && lastName.invalid">
+                        Last Name is Required.
+                      </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="form-group col-lg-6">
+                    <input #designation="ngModel" [(ngModel)]="employee.designation" name="designation" id="designation" type="text" placeholder="Designation" class="form-control input-lg input-underline" required>
+                    <div class="alert alert-danger" *ngIf="designation.touched && designation.invalid">
+                        Designation is Required.
+                      </div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <input #managerName="ngModel" [(ngModel)]="employee.managerName" name="managerName" id="managerName" type="text" placeholder="Managers Name" class="form-control input-lg input-underline" required>
+                    <div class="alert alert-danger" *ngIf="managerName.touched && managerName.invalid">
+                        Manager Name is Required.
+                      </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="form-group col-lg-6">
+                    <select #employeeType="ngModel" [(ngModel)]="employee.employeeType" name="employeeType" id="employeeType" type="text" class="form-control  input-lg input-underline" required>
+                        <option *ngFor="let e of employeeTypes" [ngValue]="e.employeeTypeId">{{ e.employeeTypeName }}</option>
+                        </select>
+                    <div class="alert alert-danger" *ngIf="employeeType.touched && employeeType.invalid">
+                        Employee Type is Required.
+                    </div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <img [src]="imageUrl" style="width:250px;height:200px">
+                    <input #imgFile="ngModel" [(ngModel)]="employee.imageFile" (change)="handleFileInput($event.target.files)" type="file" name="imgFile" accept="image/*" class="form-control-file" id="imgFile">
+                </div>
+            </div>
+          
+          <div class="form-group row col-lg-6">
+              <input #notes="ngModel" [(ngModel)]="employee.notes" name="notes" id="notes" type="email" placeholder="Notes" class="form-control input-lg input-underline">
+          </div>
+          <div class="form-group row col-lg-6">
+            <button type="submit" class="btn btn-primary col-lg-6" [disabled]="!f.form.valid">Add Employee</button>
+            <button type="reset" class="btn btn-secondary float-right col-lg-2">Cancel</button>
+          </div>
+          
+        </form>
+</div>
+

@@ -1,0 +1,17 @@
+C:\PC\Employee\EmployeeApi\EmployeeApi.Test\bin\Debug\netcoreapp2.2\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\PC\Employee\EmployeeApi\EmployeeApi.Test\bin\Debug\netcoreapp2.2\xunit.runner.reporters.netcoreapp10.dll
+C:\PC\Employee\EmployeeApi\EmployeeApi.Test\bin\Debug\netcoreapp2.2\xunit.runner.utility.netcoreapp10.dll
+C:\PC\Employee\EmployeeApi\EmployeeApi.Test\bin\Debug\netcoreapp2.2\EmployeeApi.Test.deps.json
+C:\PC\Employee\EmployeeApi\EmployeeApi.Test\bin\Debug\netcoreapp2.2\EmployeeApi.Test.runtimeconfig.json
+C:\PC\Employee\EmployeeApi\EmployeeApi.Test\bin\Debug\netcoreapp2.2\EmployeeApi.Test.runtimeconfig.dev.json
+C:\PC\Employee\EmployeeApi\EmployeeApi.Test\bin\Debug\netcoreapp2.2\EmployeeApi.Test.dll
+C:\PC\Employee\EmployeeApi\EmployeeApi.Test\bin\Debug\netcoreapp2.2\EmployeeApi.Test.pdb
+C:\PC\Employee\EmployeeApi\EmployeeApi.Test\bin\Debug\netcoreapp2.2\EmployeeApi.dll
+C:\PC\Employee\EmployeeApi\EmployeeApi.Test\bin\Debug\netcoreapp2.2\EmployeeApi.pdb
+C:\PC\Employee\EmployeeApi\EmployeeApi.Test\obj\Debug\netcoreapp2.2\EmployeeApi.Test.csprojAssemblyReference.cache
+C:\PC\Employee\EmployeeApi\EmployeeApi.Test\obj\Debug\netcoreapp2.2\EmployeeApi.Test.csproj.CoreCompileInputs.cache
+C:\PC\Employee\EmployeeApi\EmployeeApi.Test\obj\Debug\netcoreapp2.2\EmployeeApi.Test.AssemblyInfoInputs.cache
+C:\PC\Employee\EmployeeApi\EmployeeApi.Test\obj\Debug\netcoreapp2.2\EmployeeApi.Test.AssemblyInfo.cs
+C:\PC\Employee\EmployeeApi\EmployeeApi.Test\obj\Debug\netcoreapp2.2\EmployeeApi.Test.csproj.CopyComplete
+C:\PC\Employee\EmployeeApi\EmployeeApi.Test\obj\Debug\netcoreapp2.2\EmployeeApi.Test.dll
+C:\PC\Employee\EmployeeApi\EmployeeApi.Test\obj\Debug\netcoreapp2.2\EmployeeApi.Test.pdb

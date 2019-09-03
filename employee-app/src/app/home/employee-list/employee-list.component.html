@@ -1,0 +1,22 @@
+
+<table class="table" >  
+    <tr ngclass="btn-primary">  
+      <th class="tbl2">NAME</th>  
+      <th class="tbl2">DESIGNATION</th>  
+      <th class="tbl2">TYPE</th>  
+      <th class="tbl2">REPORTING MANAGER</th> 
+    </tr>  
+    <tr *ngFor="let employee of allEmployees | async">  
+      <td class="tbl2">{{employee.name}}</td>  
+      <td class="tbl2">{{employee.designation}}</td>  
+      <td class="tbl2">{{employee.employeeType}}</td>  
+      <td class="tbl2">{{employee.managerName}}</td>   
+      <td class="tbl2">  
+        <button type="button" class="btn btn-info" [routerLink]="['/add-employee/', employee.employeeId]">Edit</button>  
+      </td>  
+      <td class="tbl2">  
+        <button type="button" class="btn btn-danger" (click)="deleteEmployee(employee.employeeId)">Delete</button>  
+      </td>  
+    </tr>  
+
+  </table> 

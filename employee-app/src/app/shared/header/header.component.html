@@ -1,0 +1,18 @@
+<header> 
+    <div class="navbar navbar-dark bg-dark box-shadow">
+      <div class="container d-flex justify-content-between">
+        <a routerLink="/home" class="navbar-brand d-flex align-items-center">
+          <strong>Employee App</strong>
+        </a>
+        <nav *ngIf="!isAuthenticated" class="my-2 my-md-0 mr-md-3">
+           <a class="p-2 text-light" routerLink="/register">Register</a> 
+           <a class="p-2 text-light" routerLink="/login">Login</a>     
+        </nav>
+        <nav *ngIf="isAuthenticated" class="my-2 my-md-0 mr-md-3">
+           <a class="p-2 text-light" href="#">{{ name }}</a>
+           <a class="p-2 text-light" (click)="logout()" href="#">Sign out</a>
+        </nav>
+      </div>    
+    </div>
+  </header>
+  
