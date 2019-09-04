@@ -1,0 +1,19 @@
+table {
+    width: 100%;
+  }
+  i{
+    cursor: pointer;
+}
+
+.edit{
+    color: blue;
+    padding-right: 20px;
+}
+
+.delete{
+    color: red;
+}
+
+i{
+    cursor: pointer;
+}

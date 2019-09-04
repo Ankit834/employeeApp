@@ -92,5 +92,10 @@ export class AddEmployeeComponent implements OnInit {
     reader.readAsDataURL(this.fileToUpload);
   }
 
+  onChangeDepartment(event){
+    let value = event.target.value;
+    this.employee.department = value;
+  }
+
 
 }

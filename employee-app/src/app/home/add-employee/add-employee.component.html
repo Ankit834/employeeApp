@@ -7,8 +7,8 @@
         <form #f="ngForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <select #departmentName="ngModel" [(ngModel)]="employee.department" name="departmentName" id="departmentName" class="form-control input-lg input-underline" required>
+                  <option value="undefined" disabled selected >Select Department...</option>
                   <option *ngFor="let d of departments" [ngValue]="d.departmentId">{{ d.departmentName }}</option>
-                  <!-- <option *ngFor="let c of categories">{{ c }}</option> -->
                 </select>
                 <div class="alert alert-danger" *ngIf="departmentName.touched && departmentName.invalid">
                     Department Name is Required.
@@ -48,6 +48,7 @@
             <div class="row">
                 <div class="form-group col-lg-6">
                     <select #employeeType="ngModel" [(ngModel)]="employee.employeeType" name="employeeType" id="employeeType" type="text" class="form-control  input-lg input-underline" required>
+                        <option value="undefined" hidden disabled selected>Select Employee Type...</option>
                         <option *ngFor="let e of employeeTypes" [ngValue]="e.employeeTypeId">{{ e.employeeTypeName }}</option>
                         </select>
                     <div class="alert alert-danger" *ngIf="employeeType.touched && employeeType.invalid">

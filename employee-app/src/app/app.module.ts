@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
+         MatSortModule, MatTableModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +17,7 @@ import { AddEmployeeComponent } from './home/add-employee/add-employee.component
 import { EmployeeService } from './services/employee.service';
 import { HeaderComponent } from './shared/header/header.component';
 import { AuthGuard } from './services/auth.guard';
+import { EmployeeGridComponent } from './home/employee-grid/employee-grid.component';
 
 @NgModule({
   declarations: [
@@ -23,14 +27,21 @@ import { AuthGuard } from './services/auth.guard';
     HomeComponent,
     EmployeeListComponent,
     AddEmployeeComponent,
-    HeaderComponent
+    HeaderComponent,
+    EmployeeGridComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatSortModule,
+    MatTableModule 
   ],
   providers: [AuthService, EmployeeService, AuthGuard],
   bootstrap: [AppComponent]
