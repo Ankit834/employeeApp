@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Sanitizer } from '@angular/core';
 import { EmployeeDetails } from 'src/app/shared/models/employeeDetails.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from 'src/app/services/employee.service';
@@ -6,7 +6,7 @@ import { Department } from 'src/app/shared/models/department.interface';
 import { Observable } from 'rxjs';
 import { EmployeeType } from 'src/app/shared/models/employeeType.interface';
 import { NgForm } from '@angular/forms';
-import { toBase64String } from '@angular/compiler/src/output/source_map';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'add-employee',
@@ -17,6 +17,7 @@ export class AddEmployeeComponent implements OnInit {
 
   @ViewChild("f") public empForm : NgForm ;
   title: string = "Add New Employee"
+  buttonString: string = "Add Employee"
   id: any;
   employee = {} as EmployeeDetails;
   isEdit: boolean = false;
@@ -24,17 +25,19 @@ export class AddEmployeeComponent implements OnInit {
   employeeTypes: EmployeeType[];
   employeeDetails: Observable<EmployeeDetails>;
   message : string;
-  imageUrl : string = "assets/images/default-image.png";
+  defaultImage: string = "assets/images/default-image.png"
   fileToUpload : File = null;
   binaryImage : string;
-  constructor(private router: Router, private route: ActivatedRoute, private empService: EmployeeService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private empService: EmployeeService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.getDepartments();
     this.getEmployeeTypes();
+    this.employee.image = this.defaultImage;
     this.id = this.route.snapshot.paramMap.get('id');
     if(this.id != null){
-      this.title = "Edit Employee"
+      this.title = "Edit Employee";
+      this.buttonString = "Edit Employee";
       this.isEdit = true;
       this.fetchEmployeeDetails(this.id);
     }
@@ -57,15 +60,15 @@ export class AddEmployeeComponent implements OnInit {
 
   fetchEmployeeDetails(id : number){
     this.empService.getEmployeeById(id).subscribe(data => {
-      console.log(data);
       this.employee = data;
-      console.log(this.employee);
+      if(this.employee.image === null){
+        this.employee.image = this.defaultImage;
+      }
     })
   }
 
   onSubmit(){
     if(this.isEdit && this.id != null){
-      this.employee.imageFile = this.binaryImage;
       this.empService.updateEmployee(this.employee).subscribe(() =>{
         this.message = "Data Updated Successfully";
         this.router.navigate(['/home']);
@@ -85,17 +88,11 @@ export class AddEmployeeComponent implements OnInit {
     this.fileToUpload = file.item(0);
     var reader = new FileReader();
     reader.onload = (event:any) => {
-      this.imageUrl = event.target.result;
-      this.binaryImage = btoa(event.target.result)
+      this.employee.image = event.target.result;
+      // console.log(this.imageUrl)
+      // this.binaryImage = btoa(event.target.result);
     }
 
     reader.readAsDataURL(this.fileToUpload);
   }
-
-  onChangeDepartment(event){
-    let value = event.target.value;
-    this.employee.department = value;
-  }
-
-
 }

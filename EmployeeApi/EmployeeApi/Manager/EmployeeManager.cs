@@ -56,7 +56,8 @@ namespace EmployeeApi.Manager
                 ManagerName = employee.ManagerName,
                 EmployeeType = employee.EmployeeTypeId,
                 Department = employee.DepartmentId,
-                Notes = employee.Notes
+                Notes = employee.Notes,
+                Image = employee.Image
             };
 
             return empDetails;
@@ -72,7 +73,8 @@ namespace EmployeeApi.Manager
                 ManagerName = employee.ManagerName,
                 EmployeeTypeId = employee.EmployeeType,
                 DepartmentId = employee.Department,
-                Notes = employee.Notes
+                Notes = employee.Notes,
+                Image = employee.Image
             };
 
             await _employeeContext.Employees.AddAsync(employeeDetails);
@@ -91,7 +93,8 @@ namespace EmployeeApi.Manager
                 ManagerName = employee.ManagerName,
                 EmployeeTypeId = employee.EmployeeType,
                 DepartmentId = employee.Department,
-                Notes = employee.Notes
+                Notes = employee.Notes,
+                Image = employee.Image
             };
             _employeeContext.Employees.Update(employeeDetails);
             await _employeeContext.SaveChangesAsync();

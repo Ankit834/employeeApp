@@ -15,6 +15,7 @@ namespace EmployeeApi.Model.ViewModel
         public string ManagerName { get; set; }
         public int EmployeeType { get; set; }
         public string Notes { get; set; }
+        public string Image { get; set; }
 
     }
 }

@@ -19,7 +19,7 @@ namespace EmployeeApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("EmployeeApi.Model.AppUser", b =>
+            modelBuilder.Entity("EmployeeApi.Model.DataModel.AppUser", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -74,7 +74,7 @@ namespace EmployeeApi.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("EmployeeApi.Model.Department", b =>
+            modelBuilder.Entity("EmployeeApi.Model.DataModel.Department", b =>
                 {
                     b.Property<int>("DepartmentId")
                         .ValueGeneratedOnAdd()
@@ -87,7 +87,7 @@ namespace EmployeeApi.Migrations
                     b.ToTable("Departments");
                 });
 
-            modelBuilder.Entity("EmployeeApi.Model.Employee", b =>
+            modelBuilder.Entity("EmployeeApi.Model.DataModel.Employee", b =>
                 {
                     b.Property<int>("EmployeeId")
                         .ValueGeneratedOnAdd()
@@ -100,6 +100,8 @@ namespace EmployeeApi.Migrations
                     b.Property<int>("EmployeeTypeId");
 
                     b.Property<string>("FirstName");
+
+                    b.Property<string>("Image");
 
                     b.Property<string>("LastName");
 
@@ -116,7 +118,7 @@ namespace EmployeeApi.Migrations
                     b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("EmployeeApi.Model.EmployeeType", b =>
+            modelBuilder.Entity("EmployeeApi.Model.DataModel.EmployeeType", b =>
                 {
                     b.Property<int>("EmployeeTypeId")
                         .ValueGeneratedOnAdd()
@@ -239,14 +241,14 @@ namespace EmployeeApi.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("EmployeeApi.Model.Employee", b =>
+            modelBuilder.Entity("EmployeeApi.Model.DataModel.Employee", b =>
                 {
-                    b.HasOne("EmployeeApi.Model.Department", "Department")
+                    b.HasOne("EmployeeApi.Model.DataModel.Department", "Department")
                         .WithMany()
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("EmployeeApi.Model.EmployeeType", "EmployeeType")
+                    b.HasOne("EmployeeApi.Model.DataModel.EmployeeType", "EmployeeType")
                         .WithMany()
                         .HasForeignKey("EmployeeTypeId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -262,7 +264,7 @@ namespace EmployeeApi.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("EmployeeApi.Model.AppUser")
+                    b.HasOne("EmployeeApi.Model.DataModel.AppUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -270,7 +272,7 @@ namespace EmployeeApi.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("EmployeeApi.Model.AppUser")
+                    b.HasOne("EmployeeApi.Model.DataModel.AppUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -283,7 +285,7 @@ namespace EmployeeApi.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("EmployeeApi.Model.AppUser")
+                    b.HasOne("EmployeeApi.Model.DataModel.AppUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -291,7 +293,7 @@ namespace EmployeeApi.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("EmployeeApi.Model.AppUser")
+                    b.HasOne("EmployeeApi.Model.DataModel.AppUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);

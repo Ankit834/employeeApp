@@ -15,6 +15,7 @@ namespace EmployeeApi.Model.DataModel
         public int DepartmentId { get; set; }
         public int EmployeeTypeId { get; set; }
         public string Notes { get; set; }
+        public string Image { get; set; }
 
         public Department Department { get; set; }
         public EmployeeType EmployeeType { get; set; }

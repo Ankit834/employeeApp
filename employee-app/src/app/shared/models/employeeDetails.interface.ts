@@ -7,5 +7,5 @@ export interface EmployeeDetails{
     department: number;
     employeeType: number;
     notes: string;
-    imageFile: string;
+    image: string;
 }
